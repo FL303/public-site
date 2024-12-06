@@ -7,7 +7,7 @@ WORKDIR /site
 RUN hugo --environment $env
 
 #Copy static files to Nginx
-FROM nginx:alpine
+FROM nginx:1.25.4-alpine3.18
 COPY --from=build /site/public /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
 
