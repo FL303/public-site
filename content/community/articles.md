@@ -9,6 +9,9 @@ weight=30
 _Here we provide a repository of the latest and greatest blog posts and articles all about Internal Developer Platforms (IDP). Wrote an amazing piece and like to have it included? [Submit a pull request!]({{< relref "/#how-to-contribute-to-internal-developer-platform" >}})_
 
 ## 2025
+- [10 Platform engineering predictions for 2026](https://platformengineering.org/blog/10-platform-engineering-predictions-for-2026) _Luca Galante, Core Contributor @ Platform Engineering_
+- [Platform engineering tools you NEED to know in 2026](https://platformengineering.org/blog/platform-engineering-tools-2026) _Mallory Haigh, Workshop host @ Platform Engineering_
+- [How to measure developer productivity and platform ROI: A complete framework for platform engineers](https://platformengineering.org/blog/how-to-measure-developer-productivity-and-platform-roi-a-complete-framework-for-platform-engineers) _Sam Barlien, Head of Ecosystem @ Platform Engineering_
 - [AI needs platform engineering: Just ask Thoughtworks and Google](https://platformengineering.org/blog/ai-needs-platform-engineering-just-ask-thoughtworks-and-google) *Sam Barlien, Head of Ecosystem @ Platform Engineering*
 - [Platform engineering: A golden era for service providers](https://platformengineering.org/blog/platform-engineering-a-golden-era-for-service-providers) *Luca Galante, Core Contributor @ Platform Engineering*
 - [The Product Operating Model for Platform Engineering teams](https://platformengineering.org/blog/getting-started-with-the-product-operating-model-for-platform-engineering-teams) *Jordan Chernevm Technical Executive*
