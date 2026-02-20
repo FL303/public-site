@@ -1,0 +1,51 @@
+name: Weekly articles PR
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"   # Mondays 09:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-and-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run updater
+        env:
+          # This token is fine because it only needs to push to YOUR fork.
+          # We'll use a separate token for creating the PR against upstream.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/weekly_articles_update.py
+
+      - name: Create PR to upstream
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.PR_CREATOR_TOKEN }}
+          branch: bot/weekly-articles
+          delete-branch: false
+          title: "Weekly update: community articles"
+          body: |
+            Automated weekly update to `content/community/articles.md`.
+            Please review before merging.
+          commit-message: "Update community articles list"
+          # These fields are important for fork -> upstream PRs
+          base: main
+          # Your fork owner/repo; you can also omit if it detects correctly, but being explicit is safer
+          push-to-fork: ${{ github.repository }}
+          # The PR target repo (upstream)
+          repository: InternalDeveloperPlatform/public-site
